@@ -9,9 +9,8 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
 
 WORKDIR /app/ZeppelinBot
 ARG GIT_REPO=https://github.com/Dragory/ZeppelinBot.git
-RUN git clone $GIT_REPO .
 ARG GIT_BRANCH=master
-RUN git switch $GIT_BRANCH
+RUN git clone $GIT_REPO . && git switch $GIT_BRANCH
 
 RUN nvm install
 

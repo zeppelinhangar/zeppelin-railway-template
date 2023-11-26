@@ -25,9 +25,8 @@ RUN ln -s /etc/nginx/sites-available/zeppelin /etc/nginx/conf.d/default.conf
 
 WORKDIR /app/ZeppelinBot
 ARG GIT_REPO=https://github.com/Dragory/ZeppelinBot.git
-RUN git clone $GIT_REPO .
 ARG GIT_BRANCH=master
-RUN git switch $GIT_BRANCH
+RUN git clone $GIT_REPO . && git switch $GIT_BRANCH
 
 RUN nvm install 16
 RUN touch .env
